@@ -1,36 +1,48 @@
-﻿// Eski .NET versiyonlarındaki Program.cs
-// namespace kodlarımızın kapsamını belirlemeye yarıyor.
-// Böylece namespace'de tanımladığımız değişkenlerimiz, metotlarımız .NET'in kendi kütüphaneleriyle veya diğer üçüncü parti yazılımlarla çakışmamış oluyor.
-// C#'ta her namespace, class ve fonksiyonun kapsamı {} işaretleriyle belirlenir. Bu ikisi arasında kalan her şey bu kapsama aittir. Buna blok da denir.
+﻿/*
+Eski .NET versiyonlarındaki Program.cs
+Ad alanı (namespace) kodlarımızın kapsamını belirlemeye yarıyor.
+Böylece ad alanında tanımladığımız değişkenlerimiz, metotlarımız .NET  kütüphaneleriyle veya diğer üçüncü parti yazılımlarla çakışmamış oluyor.
+C#'ta her ad alanı, sınıf (class) ve metodun (method) kapsamı {} işaretleriyle belirlenir. Bu ikisi arasında kalan her şey bu kapsama aittir. Buna blok (block) da denir.
+*/
 namespace HelloWorldOld
 {
-    // class'lar nesne yönelimli programlanın ana yapıtaşlarından biridir. Kodlarımızı classlar yardımıyla organize ediyoruz.
-    // class'lar içerisinde property'ler ve metotlar bulundurabiliyor.
-    // Buradaki internal deyimi ise bir erişim bildirgecidir. Bu sınıfa nereden erişilebileceğini belirtiyor.
+    /*
+    Sınıflar nesne yönelimli programlanın (Object-Oriented Programming) ana öğelerinden biridir. Kodlarımızı sınıflar yardımıyla organize ediyoruz.
+    Sınıflar içerisinde özellikler (properties) ve metotlar bulundurabiliyor.
+    Buradaki dahili (internal) deyimi ise bir erişim bildirgecidir (access modifier). Bu sınıfa nereden erişilebileceğini belirtiyor.
+    */
     internal class Program
     {
-        // Main fonksiyonu C#'ta kodların çalışmaya başladığı fonksiyondur. Programımız ilk buradan çalışmaya başlar.
-        // static deyimi bu programın yeni bir instance'ı oluşturulmadan yani new deyimini kullanmadan bu fonksiyonun çalıştırılabilmesini sağlar.
-        // void ise bu fonsiyonun çalıştıktan sonra geriye bir değer döndürmediğini gösterir.
-        // Main fonksiyonumuz içerisine string[] yani string dizisi olarak argümanlar alır. Bu argümanlar programı çalıştırırken compiler'a gönderilen komutlardır.
+        /*
+        Main metodu C#'ta kodların çalışmaya başladığı metottur. Programımız ilk buradan çalışmaya başlar.
+        Statik (static) deyimi bu programın yeni bir örneği (instance) oluşturulmadan yani new deyimini kullanmadan bu metodun çalıştırılabilmesini sağlar.
+        void ise bu metodun çalıştıktan sonra geriye bir değer döndürmediğini gösterir.
+        Main metodumuz içerisine string[] yani dize dizisi (string array) olarak argümanlar (arguments) alır. Bu argümanlar programı çalıştırırken derleyiciye (compiler)
+        gönderilen komutlardır.
+        */
         static void Main(string[] args)
         {
-            // Console static bir class'tır. İçindeki WriteLine fonksiyonu ise konsola çıktı almaya yarar.
-            // C#'ta bir fonksiyonun çalıştırıldığını () işaretlerinden anlarız.
-            // C#'ta alttaki yapıya statement denir.
-            // Her statement'tın sonuna ; konur.
+            /*
+            Konsol (Console) statik (static) bir sınıftır. İçinde tanımlanmış WriteLine metodu ise konsola çıktı (output) almaya yarar.
+            C#'ta bir metodun çalıştırıldığını () işaretlerinden anlarız.
+            C#'ta alttaki yapıya ifade (statement) denir.
+            Her ifade sonuna ; konur.
+            */
             Console.WriteLine("Hello, World!");
             Console.WriteLine("What is your name?");
-            // Console.ReadLine fonskiyonu kullanıcıdan girdi almamızı sağlar.
+            // Console.ReadLine metodu kullanıcıdan girdi (input) almamızı sağlar.
             string str = Console.ReadLine();
-            // C#'ta + bir operatördür. Altta iki string'i birleştirmek için kullanılmıştır.
+            // C#'ta + bir operatördür (operator). Altta iki dizeyi (string) birleştirmek için kullanılmıştır.
             Console.WriteLine("Why, hello there " + str);
         }
     }
 }
 
-// C#'ın yeni versiyonlarıyla beraber file-scoped namespace diye bir özellik daha gelmiştir.
-// Üstteki namespace yapısı yerine alttakini de kullanabiliriz. Böylece alttaki namespace'in {} işaretlerine ihtiyacı olmaz.
+/*
+C#'ın yeni versiyonlarıyla beraber dosya kapsamlı alan adı (file-scoped namespace) diye bir özellik daha gelmiştir.
+Üstteki alan adı yapısı yerine alttakini de kullanabiliriz. Böylece alttaki alan adının {} işaretlerine ihtiyacı olmaz.
+*/
+
 //namespace HelloWorldOld;
 //internal class Program
 //{
