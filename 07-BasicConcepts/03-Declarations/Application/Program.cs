@@ -1,6 +1,4 @@
 ﻿#region Tanımlamalar (Declarations)
-
-#region Tanım
 /*
 Tanımlamalar (declarations) C#'ta bir programı oluşturan elementlerdir. C# programları ad alanları (namespace) kullanılarak organize edilir.
 Ad alanı tanımlamaları tür (type) tanımlamalarını ve başka ad alanı tanımlamalarını içerebilirken tür tanımlamaları sınıfları (classes),
@@ -14,11 +12,10 @@ statik oluşturucular (static constructors), sonlandırıcılar (finalizer) ve i
 Tüm tanımlamalara bir isim verilir ve bu isim nerede tanımlandıysa kapsamı orasıyla sınırlıdır. Bu alana tanım uzayı (declaration space) denir.
 Aşağıdaki durumlar haricinde aynı tanım uzayında aynı ada sahip iki tanımlama yapmak kodlar derlenirken hata döndürür:
 */
-#endregion
 
 #region Madde 1
 /*
-Madde 1) Aynı tanım uzayında aynı ada sahip iki ad alanı (namespace) bulunabilir. Bunlar birleştirilerek tek bir tanım uzayındaymış gibi çalışırlar.
+Aynı tanım uzayında aynı ada sahip iki ad alanı (namespace) bulunabilir. Bunlar birleştirilerek tek bir tanım uzayındaymış gibi çalışırlar.
 
 Alttaki ad alanındaki Program sınıfı Person sınıfına hiçbir şekilde referans göstermiyor. Fakat ikisinin ad alanı aynı olduğu için C# bunların
 tanım uzaylarını birleştiriyor. Person sınıfının içinde bulunduğu ad alanının adını Application yerine başka bir şey yaparsak Program sınıfındaki
@@ -54,7 +51,7 @@ hata mesajını görebiliriz.
 
 #region Madde 2
 /*
-Madde 2) Farklı programlar içerisinde bulunan fakat aynı tanım uzayı içerisinde çağrılan aynı isimde tanımlamalar yapılabilir. Fakat C# hangisini 
+Farklı programlar içerisinde bulunan fakat aynı tanım uzayı içerisinde çağrılan aynı isimde tanımlamalar yapılabilir. Fakat C# hangisini 
 seçeceğini bilemez ve bize sorar. Sadece birini referans gösterebiliriz.
 
 !!! Burayı açıp çalıştırma sadece incele çünkü ReSharper using Application1; satırını silip ilk ad alanının adını da Application olarak değiştiriyor.
@@ -108,7 +105,7 @@ sadece birini seçmek zorunda kalıyoruz.
 
 #region Madde 3
 /*
-Madde 3) Aynı tanım uzayında aynı ada sahip fakat imzaları (method signature) farklı birden fazla metot tanımlanabilir.
+Aynı tanım uzayında aynı ada sahip fakat imzaları (method signature) farklı birden fazla metot tanımlanabilir.
 
 Aşağıdaki {} işaretlerinden önceki static string Greetings() bölümüne metot imzası (method signature) denir.
 İki farklı imzaya sahip metot oluşturma işlemine de metodu aşırı yükleme (method overloading) denir.
@@ -139,7 +136,7 @@ Aşağıdaki {} işaretlerinden önceki static string Greetings() bölümüne me
 
 #region Madde 4
 /*
-Madde 4) Aynı tanım uzayında aynı türde fakat farklı sayıda ve türde parametre alan iki tür oluşturulabilir.
+Aynı tanım uzayında aynı türde fakat farklı sayıda ve türde parametre alan iki tür oluşturulabilir.
 
 Burada iki sınıf da SameClass olarak hata almadan adlandırılmıştır. Sadece bir sınıf içerisine bir tür parametresi alırken diğeri almaz.
 */
@@ -189,7 +186,7 @@ Burada iki sınıf da SameClass olarak hata almadan adlandırılmıştır. Sadec
 
 #region Madde 5
 /*
-Madde 5) Aynı tanım uzayında kısmi (partial) erişim bildirgecine (access modifier) sahip aynı türde, içine aldığı tür parametreleri aynı sayıda 
+Aynı tanım uzayında kısmi (partial) erişim bildirgecine (access modifier) sahip aynı türde, içine aldığı tür parametreleri aynı sayıda 
 ve türde olan iki tür oluşturulabilir. Bu ikisi tek bir tanım uzayında birleştirilir.
 */
 
@@ -237,7 +234,7 @@ ve türde olan iki tür oluşturulabilir. Bu ikisi tek bir tanım uzayında birl
 
 #region Madde 6
 /*
-Madde 6) Aynı tanım uzayında aynı ada sahip bir ad alanı (namespace) ve bir tür bulunabilir. Yalnızca türün en az bir tür parametresi alması gerekir.
+Aynı tanım uzayında aynı ada sahip bir ad alanı (namespace) ve bir tür bulunabilir. Yalnızca türün en az bir tür parametresi alması gerekir.
 
 Burada aynı tanım uzayında hem Application adında bir ad alanı hem de Application<T> adında bir sınıf tanımlanabilmiştir.
 */
@@ -267,19 +264,13 @@ Burada aynı tanım uzayında hem Application adında bir ad alanı hem de Appli
 //}
 #endregion
 
-#endregion
-
-#region Tanım Uzayı Türleri (Declaration Space Types)
-
-#region Tanım
 /*
 Farklı tanım uzayı türleri vardır:
 */
-#endregion
 
 #region Tür 1
 /*
-Tür 1) Programın tüm derleme birimlerinde (compilation units of program) onu kapsayan herhangi bir ad alanı (namespace) bulunmayan tüm üyeler (members)
+Programın tüm derleme birimlerinde (compilation units of program) onu kapsayan herhangi bir ad alanı (namespace) bulunmayan tüm üyeler (members)
 küresel tanım uzayında (global declaration space) birleştirilir.
 
 Burada A ve B sınıfları Application ad alanında tanımlı olmamalarına rağmen Application içerisinden çağrılabilmiştir.
@@ -312,7 +303,7 @@ Bunun sebebi A, B ve sınıflarının aynı küresel tanım uzayında olmasıdı
 
 #region Tür 2
 /*
-Tür 2) Programın tüm derleme birimlerinde (compilation units of program) bir ad alanı (namespace) içerisindeki aynı uzun ad alanı adına (fully qualified namespace) sahip
+Programın tüm derleme birimlerinde (compilation units of program) bir ad alanı (namespace) içerisindeki aynı uzun ad alanı adına (fully qualified namespace) sahip
 iki üye (member) tek bir tanım uzayında birleştirilir.
 
 Burada A ve B sınıfları Namespace1 ad alanında tanımlanmışlardır. Application içerisinden bu sınıflara erişmeye çalışınca ikisine de yalnızca tek bir using Namespace1;
@@ -353,7 +344,7 @@ ile ulaşabildik. Çünkü aynı tanım uzayındalar.
 
 #region Tür 3
 /*
-Tür 3) Her bir derleme biriminin (compilation unit) ve tanımın (declaration_body) kendine özel bir takma ad tanım uzayı (alias declaration space) vardır.
+Her bir derleme biriminin (compilation unit) ve tanımın (declaration_body) kendine özel bir takma ad tanım uzayı (alias declaration space) vardır.
 Dışarıdan referans gösterilen her bir dış takma ad yönergesi (extern alias directive) ve içeride oluşturulan takma ad yönergeleri (alias directive) buradaki
 takma ad tanım uzayına yeni bir üye (member) olarak eklenir.
 
@@ -395,7 +386,7 @@ Aynı şekilde A adında başka bir takma ad yönergesi kullanılamaz.
 
 #region Tür 4
 /*
-Tür 4) Kısmi olmayan her bir sınıf (non-partial class), yapı (struct) ve arayüz (interface) yeni bir tanım uzayı (declaration space) oluşturur. Her kısmi sınıf, yapı
+Kısmi olmayan her bir sınıf (non-partial class), yapı (struct) ve arayüz (interface) yeni bir tanım uzayı (declaration space) oluşturur. Her kısmi sınıf, yapı
 ve arayüz aynı program içerisinde kullanıldıkları yerler arasında paylaşılan tanım uzayına da katkıda bulunur. Sınıf, yapı, arayüz üye tanımları ve tür tanımlarıyla 
 yeni isimler bu tanım uzayına eklenir. Aşırı yüklenmiş örnek oluşturucu (overloaded instance constructors) tanımları ve statik oluşturucu (static constructor) tanımları 
 hariç olmak üzere bir sınıf ya da yapı kendisiyle aynı adı taşıyan bir üyeye (member) sahip olamaz. Bir sınıf, yapı ya da arayüz aşırı yüklenmiş metotların (overloaded methods)
@@ -454,7 +445,7 @@ Böyle bir durumda aynı adda oluşturulan yeni üye miras alınan sınıf ya da
 
 #region Tür 5
 /*
-Tür 5) Her delege (delegate) tanımı yeni bir tanım uzayı oluşturur. Adlar bu tanım uzayına parametreler (fixed parameters and parameter arrays) ve 
+Her delege (delegate) tanımı yeni bir tanım uzayı oluşturur. Adlar bu tanım uzayına parametreler (fixed parameters and parameter arrays) ve 
 tür parametreleri (type parameters) aracılığıyla eklenir.
 */
 
@@ -490,7 +481,7 @@ tür parametreleri (type parameters) aracılığıyla eklenir.
 
 #region Tür 6
 /*
-Tür 6) Her sayılabilir (enumerable) yeni bir tanım uzayı oluşturur. Tanım uzayına eklenen isimler sayılabilir içerisindeki tanımlamalar ile gelir.
+Her sayılabilir (enumerable) yeni bir tanım uzayı oluşturur. Tanım uzayına eklenen isimler sayılabilir içerisindeki tanımlamalar ile gelir.
 
 Burada aynı iki farklı ada sahip iki tane sayılabilir tanımlanmıştır. Fakat içlerinde aynı isimde üyeler bulundururlar. Her biri kendi tanım uzayını
 oluşturduğu için çakışma olmaz.
@@ -521,7 +512,7 @@ oluşturduğu için çakışma olmaz.
 
 #region Tür 7
 /*
-Tür 7) Her metot (method), özellik (property), özellik erişim bildirgeci (property accessor), dizin (indexer), dizin erişim bildirgeci (indexer accessor), operatör (operator),
+Her metot (method), özellik (property), özellik erişim bildirgeci (property accessor), dizin (indexer), dizin erişim bildirgeci (indexer accessor), operatör (operator),
 örnek oluşturucu (instance constructor), anonim fonksiyon (anonymous function) ve yerel fonksiyon (local function) yeni bir yerel değişken tanım uzayı 
 (local variable declaration space) oluşturur. Adlar bu tanım uzayına parametreler (fixed parameters and parameter arrays) ve tür parametreleri (type parameters) aracılığıyla eklenir.
 Bir özellik (property) veya dizine (indexer) eklenen set erişim bildirgeci (set accessor) value adında bir parametre ekler.
@@ -563,7 +554,7 @@ Bir özellik (property) veya dizine (indexer) eklenen set erişim bildirgeci (se
 
 #region Tanım
 /*
-Tür 8) Yeni üye (member), anonim fonksiyon (anonymous function) ve yerel metot (local method) tanımlamalarında yeni yerel değişken tanım uzayları 
+Yeni üye (member), anonim fonksiyon (anonymous function) ve yerel metot (local method) tanımlamalarında yeni yerel değişken tanım uzayları 
 (local variable declaration spaces) oluşabilir. Yerel değişken tanım uzayları iç içe geçmiş olabilir, ancak kapsayan yerel değişken tanım uzayında
 tanımlanan üyeler ile kapsanan yerel değişken tanım uzayında aynı ada sahip üyeler bulunamaz. Bu nedenle, iç içe geçmiş bir tanım uzaylarında, 
 aynı adda iki parametre (parameter), tür parametresi (type parameter), yerel değişken (local variable), yerel metot (local method) veya sabit (constant)
@@ -597,7 +588,7 @@ Yerel değişken tanım uzayları aşağıdaki kurallara göre oluşturulur:
 
 #region Kural 1
 /*
-Kural 1) Her alandaki (field) ve özellikteki (property) değişken başlatıcı (variable initializer) kendi yerel değişken tanım uzayını oluşturur ve burası
+Her alandaki (field) ve özellikteki (property) değişken başlatıcı (variable initializer) kendi yerel değişken tanım uzayını oluşturur ve burası
 diğer yerel değişken tanım uzayları içerisinde yer alamaz.
 */
 
@@ -630,7 +621,6 @@ diğer yerel değişken tanım uzayları içerisinde yer alamaz.
 //    }
 //    internal class Program
 //    {
-//        private delegate int Delegate1(int x, int y);
 //        static void Main(string[] args)
 //        {
 //            var class1 = new Class1();
@@ -647,7 +637,7 @@ diğer yerel değişken tanım uzayları içerisinde yer alamaz.
 
 #region Kural 2
 /*
-Kural 2) Anonim ve yerel metotların (anonymous and local methods) içi, bu metotların içinde bulunduğu yerel değişken tanım uzayına dahil 
+Anonim ve yerel metotların (anonymous and local methods) içi, bu metotların içinde bulunduğu yerel değişken tanım uzayına dahil 
 olan yeni bir yerel değişken tanım uzayı oluşturur.
 */
 
@@ -685,7 +675,7 @@ olan yeni bir yerel değişken tanım uzayı oluşturur.
 
 #region Kural 3
 /*
-Kural 3) Her oluşturucu başlatıcısı (constructor initializer) örnek oluşturucu tanımının (instance constructor declaration) içerisinde yeni bir yerel değişken tanım uzayı 
+Her oluşturucu başlatıcısı (constructor initializer) örnek oluşturucu tanımının (instance constructor declaration) içerisinde yeni bir yerel değişken tanım uzayı 
 (local variable declaration space) oluşturur. Oluşturucunun gövdesinde yeni oluşturulan bu uzay aynı zamanda içinde bulunduğu yerel değişken tanım uzayına dahildir.
 */
 
@@ -716,71 +706,261 @@ Kural 3) Her oluşturucu başlatıcısı (constructor initializer) örnek oluşt
 
 #region Kural 4
 /*
-Kural 4) Her blok (block), switch bloğu, catch bloğu, döngü tanımlamaları (iteration declaration), using tanımlamaları tanımlandıkları alan tarafından kapsanan yeni bir yerel değişken 
+Her blok (block), switch bloğu, catch bloğu, döngü tanımlamaları (iteration declaration), using tanımlamaları tanımlandıkları alan tarafından kapsanan yeni bir yerel değişken 
 tanım uzayı oluştururlar.
 */
 
-namespace Application
-{
-    public class Class1
-    {
-        public int number = 7;
-        public string GetDayName(int number)
-        {
-            var dayName = "";
-            switch (number)
-            {
-                case 1:
-                    dayName = "Monday";
-                    break;
-                case 2:
-                    dayName = "Tuesday";
-                    break;
-                case 3:
-                    dayName = "Wednesday";
-                    break;
-                case 4:
-                    dayName = "Thursday";
-                    break;
-                case 5:
-                    dayName = "Friday";
-                    break;
-                case 6:
-                    dayName = "Saturday";
-                    break;
-                case 7:
-                    dayName = "Sunday";
-                    break;
-            }
-            return dayName;
-        }
-        public string GetDayName(int number)
-        {
-            var errorMessage = "Error !!!";
-            try
-            {
-                throw new Exception(errorMessage);
-            }
-            catch (Exception e)
-            {
-                throw;
-            }
-            return dayName;
-        }
+//namespace Application
+//{
+//    public class Class1
+//    {
+//        public string SomeMethod()
+//        {
+//            var innerVariable = "inner";
+//            return innerVariable;
+//        }
+//        innerVariable = null; // innerVariable değişkeni SomeMethod metodu içerisindeki yerel değişken tanımlama uzayında olduğundan buradan ulaşılamaz.
 
-    }
-    internal class Program
-    {
-        static void Main(string[] args)
-        {
-            var class1 = new Class1();
-            Console.WriteLine(class1);
-        }
-    }
-}
-#endregion
+//        public int number = 1;
+//        public string GetDayName(int number)
+//        {
+//            var dayName = "";
+//            switch (number)
+//            {
+//                case 1:
+//                    var innerVariable = "Monday";
+//                    dayName = innerVariable;
+//                    break;
+//                case 2:
+//                    dayName = "Tuesday";
+//                    break;
+//            }
+//            innerVariable = "Saturday"; // innerVariable değişkeni switch içerisindeki yerel değişken tanımlama uzayında olduğundan buradan ulaşılamaz.
+//            return dayName;
+//        }
+//        public void TrySomething()
+//        {
+//            var errorMessage = "Error !!!";
+//            try
+//            {
+//                var newMessage = "New Error !!!";
+//                throw new Exception(errorMessage);
+//            }
+//            catch (Exception e)
+//            {
+//                newMessage = "Error 2 !!!"; // newMessage değişkeni try içerisindeki yerel değişken tanımlama uzayında olduğundan buradan ulaşılamaz.
+//                throw;
+//            }
+//            newMessage = "Error 2 !!!"; // newMessage değişkeni try içerisindeki yerel değişken tanımlama uzayında olduğundan buradan ulaşılamaz.
+//        }
+
+//        public void RandomLoop()
+//        {
+//            for (int i = 0; i < 5; i++)
+//            {
+//                var innerVariable = i;
+//            }
+//            innerVariable = 10; // innerVariable değişkeni for döngüsü içerisindeki yerel değişken tanımlama uzayında olduğundan buradan ulaşılamaz.
+//        }
+//    }
+//}
 #endregion
 
+#region Kural 5
+/*
+Doğrudan bir ifade listesinin (statement list) bir parçası olmayan her gömülü ifade (embedded statement), iç içe yeni bir yerel değişken tanım uzayı oluşturur.
+*/
+
+//namespace Application
+//{
+//    public class Class1
+//    {
+//        public class Program
+//        {
+//            //static void SomeMethod1(bool b)
+//            //{
+//            //    if (b)
+//            //        int i = 44; // if bloğunun içerisinde bir gömülü ifade bulunmalıdır. Fakat burada normal bir ifade tanımlanmıştır. Hata döndürür.
+//            //}
+//            static void SomeMethod2(bool b)
+//            {
+//                if (b)
+//                {
+//                    int i = 44; // Burada ise bir hata olmaz.
+//                }
+//            }
+//            static void SomeMethod3(bool b)
+//            {
+//                int i = 44;
+//                if (b)
+//                    i = 7;
+//            }
+//            static void Main(string[] args)
+//            {
+//                //SomeMethod1(true);
+//                SomeMethod2(true);
+//                SomeMethod3(true);
+//            }
+//        }
+//    }
+//}
 #endregion
 
+#region Kural 6
+/*
+Her switch kendi yerel değişken tanım uzayını oluşturur. Fakat switch içerisindeki her bir case içinde tanımlanan değişkenler ortak bir yerel değişken tanım 
+uzayında birleşir.
+*/
+
+//namespace Application
+//{
+//    public class Class1
+//    {
+//        public string GetDayName(int number)
+//        {
+//            var dayName = "";
+//            switch (number)
+//            {
+//                case 1:
+//                    var innerVariable = "inner";
+//                    dayName = "Monday";
+//                    break;
+//                case 2:
+//                    var innerVariable = "inner"; // Her bir switch bölümü yeni bir yerel değişken tanımlama uzayı oluşturmaz. Tüm bölümleri oluşturduğu uzay birleştirilir.  
+//                    dayName = "Tuesday";
+//                    break;
+//            }
+//            innerVariable = "Saturday"; // innerVariable değişkeni switch içerisindeki yerel değişken tanımlama uzayında olduğundan buradan ulaşılamaz.
+//            return dayName;
+//        }
+//    }
+//}
+#endregion
+
+#region Kural 7
+/*
+Sorgu ifadelerinin (query expressions) (§12.20.3) çevirisi bir ya da daha fazla sayıda lambda ifadeye çevrilebilir. Anonim metotlar (anonymous methods) 
+üstte de bahsedildiği gibi kendi yerel değişken tanım uzaylarını yaratırlar.
+*/
+
+//namespace Application
+//{
+//    public class Class1
+//    {
+//        public bool FindWordContainsAChar(char character)
+//        {
+//            string text = "Arcan Caner Şenol is 28 years old.";
+//            char searchedChar = text.SingleOrDefault(w => w == character);
+//            w = 'd'; // w değişkeni anonim metot içerisindeki yerel değişken tanımlama uzayında olduğundan buradan ulaşılamaz.
+//            return searchedChar == null ? true : false;
+//        }
+//    }
+//}
+#endregion
+
+#endregion
+
+#endregion
+
+#region Tür 9
+/*
+Tür 9) Her blok ya da switch bloğu isimler için yeni bir tanım uzayı oluşturur. Bu tanım uzayları içinde bulunan tüm tanım uzaylarını kapsar. Bu sebeple iç içe iki tanım
+uzayında kapsayan blok içerisinde ve içindeki blokta aynı isimde iki üye tanımlanamaz.
+*/
+
+//class A
+//{
+//    void F()
+//    {
+//        int i = 0;
+//        if (true)
+//        {
+//            int i = 1; // i zaten bir üst tanım uzayında tanımlanmış hata verir.
+//        }
+//    }
+//    void G()
+//    {
+//        if (true)
+//        {
+//            int i = 0;
+//        }
+//        int i = 1; // i zaten bir iç tanım uzayında tanımlanmış hata verir.
+//    }
+//    void H()
+//    {
+//        if (true)
+//        {
+//            int i = 0;
+//        }
+//        if (true)
+//        {
+//            int i = 1; // Burada bir sorun olmaz çünkü iki bloğun kendi yerel değişken tanım uzayı farklıdır.
+//        }
+//    }
+//    void I()
+//    {
+//        for (int i = 0; i < 10; i++)
+//        {
+//            H();
+//        }
+//        for (int i = 0; i < 10; i++) // Her döngü kendi yerel değişken tanım uzayını oluşturur.
+//        {
+//            H();
+//        }
+//    }
+//}
+#endregion
+
+/*
+Tanımların hangi sırayla yapıldığının genel olarak bir önemi yoktur. Özellikle yazım sıralaması isim uzayları (namespaces), sabitler (constants), metotlar (methods),
+özellikler (properties), olaylar (events), dizinler (indexers), operatörler (operators), örnek oluşturucular (instance constructors), sonlandırıcılar (finalizers),
+statik oluşturucular (static constructors), ve türler (types) için önemli değildir.
+
+Tanım sıralaması sadece aşağıdaki durumlarda önemlidir:
+*/
+
+#region Durum 1
+/*
+Alan tanımlamalarının (field declaration) sırası eğer varsa başlatıcılarının (initializer) çalışma sırasını belirler.
+*/
+#endregion
+
+#region Durum 2
+/*
+Yerel değişkenler çağrılmadan önce tanımlanmalıdır.
+*/
+#endregion
+
+#region Durum 3
+/*
+Sayılabilirler (enumerable) sabit değerlerle index belirtmeden tanımlanırken tanım sırası index numarasını belirler.
+*/
+
+//enum Color1
+//{
+//    Red,
+//    Green,
+//    Blue
+//}
+//enum Color2
+//{
+//    Blue,
+//    Red,
+//    Green
+//}
+//class Test
+//{
+//    static void Main()
+//    {
+//        Console.WriteLine("--- Order 1 ---");
+//        Console.WriteLine($"{Color1.Red} {(int)Color1.Red}");
+//        Console.WriteLine($"{Color1.Green} {(int)Color1.Green}");
+//        Console.WriteLine($"{Color1.Blue} {(int)Color1.Blue}");
+//        Console.WriteLine("--- Order 2 ---");
+//        Console.WriteLine($"{Color2.Red} {(int)Color2.Red}");
+//        Console.WriteLine($"{Color2.Green} {(int)Color2.Green}");
+//        Console.WriteLine($"{Color2.Blue} {(int)Color2.Blue}");
+//    }
+//}
+#endregion
 #endregion
