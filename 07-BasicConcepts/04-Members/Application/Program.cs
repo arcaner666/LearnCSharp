@@ -101,7 +101,7 @@ Ad uzaylarının erişim kısıtlaması yoktur. Ad uzaylarında private, protect
 //    {
 //        static void Main(string[] args)
 //        {
-//            // Person1 sınıfı Küresel tanım uzayında (global namespace) tanımlandığı için her yerden ve önüne herhangi bir ad uzayı eklemeden erişilebiliyor.
+//            // Person1 sınıfı küresel tanım uzayında (global namespace) tanımlandığı için her yerden ve önüne herhangi bir ad uzayı eklemeden erişilebiliyor.
 //            var person1 = new Person1();
 //            Console.WriteLine($"Name Surname: {person1.NameSurname}");
 
@@ -162,53 +162,53 @@ Basit bir türün (simple type) üyeleri, basit tür (§8.3.5) tarafından takma
 
 #region Sayılabilir Üyeleri (Enumeration Members)
 /*
-Bir sayılabilirin (enumerable) üyeleri sayılabilir içerisinde tanımlanan sabitlerden (constants), sayılabilirin direk temel sınıfı (direct base class) olan System.Enum, dolaylı temel sınıfı olan
-(indirect base class) object ve System.ValueType üyelerinden oluşur.
+Bir sayılabilirin (enumerable) üyeleri sayılabilir içerisinde tanımlanan sabitlerden (constants), sayılabilirin direk temel sınıfı (direct base class) olan System.Enum, dolaylı temel 
+sınıfı olan (indirect base class) object ve System.ValueType üyelerinden oluşur.
 */
 
-//namespace Application
-//{
-//    public enum DaysOfTheWeek
-//    {
-//        Monday = 1,
-//        Tuesday,
-//        Wednesday,
-//        Thursday,
-//        Friday,
-//        Saturday,
-//        Sunday,
-//    }
-//    internal class Program
-//    {
-//        static void Main(string[] args)
-//        {
-//            // Sayılabilir içerisinde bizim tanımladığımız üyeler
-//            Console.WriteLine($"Day Name: {DaysOfTheWeek.Monday}, Day Number: {(int)DaysOfTheWeek.Monday}");
-//            Console.WriteLine($"Day Name: {DaysOfTheWeek.Tuesday}, Day Number: {(int)DaysOfTheWeek.Tuesday}");
-//            Console.WriteLine($"Day Name: {DaysOfTheWeek.Wednesday}, Day Number: {(int)DaysOfTheWeek.Wednesday}");
-//            Console.WriteLine($"Day Name: {DaysOfTheWeek.Thursday}, Day Number: {(int)DaysOfTheWeek.Thursday}");
-//            Console.WriteLine($"Day Name: {DaysOfTheWeek.Friday}, Day Number: {(int)DaysOfTheWeek.Friday}");
-//            Console.WriteLine($"Day Name: {DaysOfTheWeek.Saturday}, Day Number: {(int)DaysOfTheWeek.Saturday}");
-//            Console.WriteLine($"Day Name: {DaysOfTheWeek.Sunday}, Day Number: {(int)DaysOfTheWeek.Sunday}");
+namespace Application
+{
+    public enum DaysOfTheWeek
+    {
+        Monday = 1,
+        Tuesday,
+        Wednesday,
+        Thursday,
+        Friday,
+        Saturday,
+        Sunday,
+    }
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+            // Sayılabilir içerisinde bizim tanımladığımız üyeler
+            Console.WriteLine($"Day Name: {DaysOfTheWeek.Monday}, Day Number: {(int)DaysOfTheWeek.Monday}");
+            Console.WriteLine($"Day Name: {DaysOfTheWeek.Tuesday}, Day Number: {(int)DaysOfTheWeek.Tuesday}");
+            Console.WriteLine($"Day Name: {DaysOfTheWeek.Wednesday}, Day Number: {(int)DaysOfTheWeek.Wednesday}");
+            Console.WriteLine($"Day Name: {DaysOfTheWeek.Thursday}, Day Number: {(int)DaysOfTheWeek.Thursday}");
+            Console.WriteLine($"Day Name: {DaysOfTheWeek.Friday}, Day Number: {(int)DaysOfTheWeek.Friday}");
+            Console.WriteLine($"Day Name: {DaysOfTheWeek.Saturday}, Day Number: {(int)DaysOfTheWeek.Saturday}");
+            Console.WriteLine($"Day Name: {DaysOfTheWeek.Sunday}, Day Number: {(int)DaysOfTheWeek.Sunday}");
 
-//            // System.Enum direk temel sınıfından gelen üyeler
-//            // .GetValuesAsUnderlyingType() metodu üyesi olduğu sayılabilirin içindeki üyeleri verilen türde Array olarak geri döndürür.
-//            Console.WriteLine($".GetValuesAsUnderlyingType() => {DaysOfTheWeek.GetValuesAsUnderlyingType(typeof(DaysOfTheWeek))}");
-//            // Bu metodun alttaki ve üsteki şekillerde iki farklı imzası (method signature) vardır.
-//            Console.WriteLine($".GetValuesAsUnderlyingType() => {DaysOfTheWeek.GetValuesAsUnderlyingType<DaysOfTheWeek>()}");
-//            // .GetValuesAsUnderlyingType() metodu bizim tanımladığımız sayılabilir yerine onun temel sınıfındaki statik bir metot olduğundan alttaki şekilde de erişilebilir.
-//            Console.WriteLine($".GetValuesAsUnderlyingType() => {Enum.GetValuesAsUnderlyingType<DaysOfTheWeek>()}");
-//            var values = Enum.GetValuesAsUnderlyingType<DaysOfTheWeek>();
-//            Console.WriteLine($"values => {values}");
-//            Console.WriteLine($"values.GetValue(0) => {values.GetValue(0)}");
-//            Console.WriteLine($"values.GetValue(1) => {values.GetValue(1)}");
-//            // !!! .TryParse() metodunun ne işe yaradığını tam olarak anlayamadım. Sonra tekrar dönülecek !!!
-//            Console.WriteLine($".TryParse() => {DaysOfTheWeek.TryParse(typeof(DaysOfTheWeek), "Monday", false, out var result)}");
-//            Console.WriteLine($".TryParse() => {result.GetType() == typeof(DaysOfTheWeek)}");
-//            Console.WriteLine($".TryParse() => {result}");
-//        }
-//    }
-//}
+            // System.Enum direk temel sınıfından gelen üyeler
+            // .GetValuesAsUnderlyingType() metodu üyesi olduğu sayılabilirin içindeki üyeleri verilen türde Array olarak geri döndürür.
+            Console.WriteLine($".GetValuesAsUnderlyingType() => {DaysOfTheWeek.GetValuesAsUnderlyingType(typeof(DaysOfTheWeek))}");
+            // Bu metodun alttaki ve üsteki şekillerde iki farklı imzası (method signature) vardır.
+            Console.WriteLine($".GetValuesAsUnderlyingType() => {DaysOfTheWeek.GetValuesAsUnderlyingType<DaysOfTheWeek>()}");
+            // .GetValuesAsUnderlyingType() metodu bizim tanımladığımız sayılabilir yerine onun temel sınıfındaki statik bir metot olduğundan alttaki şekilde de erişilebilir.
+            Console.WriteLine($".GetValuesAsUnderlyingType() => {Enum.GetValuesAsUnderlyingType<DaysOfTheWeek>()}");
+            var values = Enum.GetValuesAsUnderlyingType<DaysOfTheWeek>();
+            Console.WriteLine($"values => {values}");
+            Console.WriteLine($"values.GetValue(0) => {values.GetValue(0)}");
+            Console.WriteLine($"values.GetValue(1) => {values.GetValue(1)}");
+            // !!! .TryParse() metodunun ne işe yaradığını tam olarak anlayamadım. Sonra tekrar dönülecek !!!
+            Console.WriteLine($".TryParse() => {DaysOfTheWeek.TryParse(typeof(DaysOfTheWeek), "Monday", false, out var result)}");
+            Console.WriteLine($".TryParse() => {result.GetType() == typeof(DaysOfTheWeek)}");
+            Console.WriteLine($".TryParse() => {result}");
+        }
+    }
+}
 #endregion
 
 #region Sınıf Üyeleri (Class Members)
@@ -239,6 +239,15 @@ ulaşılabilir (§12.5).
 #region Dizi Üyeleri (Array Members)
 /*
 Bir dizinin üyeleri System.Array sınıfından miras alınan üyelerdir.
+*/
+#endregion
+
+#region Delege Üyeleri (Delegate Members)
+/*
+Bir delegenin üyeleri System.Delegate sınıfından miras alınan üyelerdir. Ek olarak, tanımında (§20.2) belirtilen aynı dönüş türüne ve parametre listesine sahip 
+Invoke adında bir metot içerir. Bu metodun çağrılması, aynı delege (delegate) örneğinin çağrılmasıyla (§20.6) aynı şekilde davranır.
+
+Delege tanımlamaları miras yoluyla veya doğrudan delegenin içerisindeki tanıma göre ek üyeler kazanabilir.
 */
 #endregion
 

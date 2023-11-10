@@ -4,7 +4,7 @@ Tanımlamalar (declarations) C#'ta bir programı oluşturan elementlerdir. C# pr
 Ad alanı tanımlamaları tür (type) tanımlamalarını ve başka ad alanı tanımlamalarını içerebilirken tür tanımlamaları sınıfları (classes),
 yapıları (structs), arayüzleri (interface), sayılabilirleri (enumerable) ve delegeleri (delegate) içerebilir. Tür içerisinde hangi üyelerin (members)
 bulunabileceğine karar verilmesi bu tanımlamaların formuna göre değişkenlik gösterir. Örneğin sınıf tanımlamaları içerisinde sabitler (constants), alanlar (fields),
-metotlar (methods), özellikler (properties), olaylar (events), dizinler (indexers), operatörler (operators), örnek oluşturucular (instance constructors), 
+metotlar (methods), özellikler (properties), olaylar (events), dizinleyici (indexers), operatörler (operators), örnek oluşturucular (instance constructors), 
 statik oluşturucular (static constructors), sonlandırıcılar (finalizer) ve iç içe türler (nested types) bulunabilir.
 */
 
@@ -136,7 +136,7 @@ Aşağıdaki {} işaretlerinden önceki static string Greetings() bölümüne me
 
 #region Madde 4
 /*
-Aynı tanım uzayında aynı türde fakat farklı sayıda ve türde parametre alan iki tür oluşturulabilir.
+Aynı tanım uzayında aynı ada sahip fakat farklı sayıda tür parametresi (type parameters) alan iki ya da daha fazla sayıda tür oluşturulabilir.
 
 Burada iki sınıf da SameClass olarak hata almadan adlandırılmıştır. Sadece bir sınıf içerisine bir tür parametresi alırken diğeri almaz.
 */
@@ -390,47 +390,76 @@ Kısmi olmayan her bir sınıf (non-partial class), yapı (struct) ve arayüz (i
 ve arayüz aynı program içerisinde kullanıldıkları yerler arasında paylaşılan tanım uzayına da katkıda bulunur. Sınıf, yapı, arayüz üye tanımları ve tür tanımlarıyla 
 yeni isimler bu tanım uzayına eklenir. Aşırı yüklenmiş örnek oluşturucu (overloaded instance constructors) tanımları ve statik oluşturucu (static constructor) tanımları 
 hariç olmak üzere bir sınıf ya da yapı kendisiyle aynı adı taşıyan bir üyeye (member) sahip olamaz. Bir sınıf, yapı ya da arayüz aşırı yüklenmiş metotların (overloaded methods)
-ve dizinlerin (indexers) tanımlamasına izin verir. Ayrıca bir sınıf ya da yapı aşırı yüklenmiş örnek oluşturucuların ve operatörlerin tanımlanmasına da izin verir.
+ve dizinleyicilerin (indexers) tanımlamasına izin verir. Ayrıca bir sınıf ya da yapı aşırı yüklenmiş örnek oluşturucuların ve operatörlerin tanımlanmasına da izin verir.
 Temel sınıfların (base classes) bir sınıfın tanım uzayına katkıda bulunmadığını ve temel arayüzlerin (base interfaces) bir arayüzün tanım uzayına katkıda bulunmadığını unutmamalıyız.
 Böylece, türetilmiş bir sınıf veya arayüzün (derived class or interface), miras alınan üyeyle (inherited member) aynı adı taşıyan bir üyeyi tanımlanmasına izin verilir. 
 Böyle bir durumda aynı adda oluşturulan yeni üye miras alınan sınıf ya da arayüzde bulunan üyeyi gizler (hiding). Derleyici bu durumu bize bildirir.
 */
 
-//namespace N1
+//namespace Application
 //{
 //    public class A
 //    {
-//        private string A { get; set; } = "Arcan Caner Şenol"; // Sınıf ile özellik aynı ada sahip olamaz. Hata veriyor.
-//        public A() // Oluşturucular aşırı yüklenebilir. Parametrelerinin farklı olması koşuluyla aynı isimde iki oluşturucu olabilir.
+//        // Sınıf ile özellik (property) aynı ada sahip olamaz. Hata veriyor.
+//        //private string A { get; set; } = "Arcan Caner Şenol";
+
+//        private string Str { get; set; } = "Arcan Caner Şenol";
+
+//        // Örnek oluşturucu ile sınıf aynı isimde olabilir.
+//        public A()
 //        {
 //        }
-//        public A(string a) // Örnek oluşturucu ile sınıf aynı isimde olabilir.
+
+//        // Oluşturucular aşırı yüklenebilir. Parametrelerinin farklı olması koşuluyla aynı isimde iki oluşturucu olabilir.
+//        public A(string str)
 //        {
-//            A = a;
+//            Str = str;
 //        }
-//        public int Sum(int x, int y) => x + y;
-//        public int Sum(int x, int y, int z) => x + y + z; // Aynı sınıf içerisinde imzası farklı fakat aynı adda iki metot bulunabilir.
+
+//        public int Sum(int x, int y)
+//        {
+//            return x + y;
+//        }
+//        // Aynı sınıf içerisinde imzası farklı fakat aynı adda iki metot bulunabilir.
+//        public int Sum(int x, int y, int z)
+//        {
+
+//            return x + y + z;
+//        }
 //    }
 //    public struct B
 //    {
-//        private string B { get; set; } = "Arcan Caner Şenol"; // Yapı ile özellik aynı ada sahip olamaz. Hata veriyor.
-//        public B(string b) // Örnek oluşturucu ile yapı aynı isimde olabilir.
+//        // Yapı ile özellik aynı ada sahip olamaz. Hata veriyor.
+//        //private string B { get; set; } = "Arcan Caner Şenol";
+
+//        private string Str { get; set; } = "Arcan Caner Şenol";
+
+//        // Örnek oluşturucu ile yapı aynı isimde olabilir.
+//        public B(string str)
 //        {
-//            B = b;
+//            Str = str;
 //        }
-//        public int Sum(int x, int y) => x + y;
-//        public int Sum(int x, int y, int z) => x + y + z; // Aynı yapı içerisinde imzası farklı fakat aynı adda iki metot bulunabilir.
 //    }
-//    interface C
+//    interface IC
 //    {
 //        // Arayüzlerde oluşturucu tanımlanamaz çünkü bir arayüzden bir nesne örneği elde edilemez.
+
 //        public int Sum(int x, int y);
-//        public int Sum(int x, int y, int z); // Aynı arayüz içerisinde imzası farklı fakat aynı adda iki metot bulunabilir.
+//        // Aynı arayüz içerisinde imzası farklı fakat aynı adda iki metot bulunabilir.
+//        public int Sum(int x, int y, int z);
 //    }
 //    public static class D
 //    {
+//        // Sınıf ile özellik aynı ada sahip olamaz. Hata veriyor.
+//        //public static string D { get; set; } = "Arcan Caner Şenol";
+
 //        // Statik sınıflarda oluşturucu bulunmaz çünkü küresel tanım uzayında bir statik türden yalnızca bir örnek bulunabilir ve bu örnek paylaşılır.
-//        public static string D { get; set; } = "Arcan Caner Şenol"; // Sınıf ile özellik aynı ada sahip olamaz. Hata veriyor.
+//        // Ancak statik sınıflarda statik oluşturucu tanımlanabilir. Bir statik oluşturucu yalnızca statik sınıf hafızada ilk kez örneği oluşturulduğunda çağrılır.
+//        static D()
+//        {
+
+//        }
+
 //    }
 //    public class E
 //    {
@@ -438,7 +467,8 @@ Böyle bir durumda aynı adda oluşturulan yeni üye miras alınan sınıf ya da
 //    }
 //    public class F : E
 //    {
-//        public string NameSurname { get; set; } = "Yaşar Taner Şenol"; // F sınıfı E'den miras alıyor fakat F'in içindeki NameSurname özelliği E'dekini gizler.
+//        // F sınıfı E'den miras alıyor fakat F'in içindeki NameSurname özelliği E'dekini gizler.
+//        public string NameSurname { get; set; } = "Yaşar Taner Şenol";
 //    }
 //}
 #endregion
@@ -512,7 +542,7 @@ oluşturduğu için çakışma olmaz.
 
 #region Tür 7
 /*
-Her metot (method), özellik (property), özellik erişim bildirgeci (property accessor), dizin (indexer), dizin erişim bildirgeci (indexer accessor), operatör (operator),
+Her metot (method), özellik (property), özellik erişim bildirgeci (property accessor), dizinleyici (indexer), dizinleyici erişim bildirgeci (indexer accessor), operatör (operator),
 örnek oluşturucu (instance constructor), anonim fonksiyon (anonymous function) ve yerel fonksiyon (local function) yeni bir yerel değişken tanım uzayı 
 (local variable declaration space) oluşturur. Adlar bu tanım uzayına parametreler (fixed parameters and parameter arrays) ve tür parametreleri (type parameters) aracılığıyla eklenir.
 Bir özellik (property) veya dizine (indexer) eklenen set erişim bildirgeci (set accessor) value adında bir parametre ekler.
@@ -541,7 +571,10 @@ Bir özellik (property) veya dizine (indexer) eklenen set erişim bildirgeci (se
 //        {
 //            var math = new Math(5);
 //            Delegate1 delegate1 = math.Sum;
-//            //Console.WriteLine($"private int _number1: {math._number1}");// _number1 değişkeni private olarak tanımlı olduğundan sadece Math sınıfı içerisinden erişilebilir.
+
+//            // _number1 değişkeni private olarak tanımlı olduğundan sadece Math sınıfı içerisinden erişilebilir.
+//            //Console.WriteLine($"private int _number1: {math._number1}");
+
 //            Console.WriteLine($"public int number2: {math.number2}");
 //            Console.WriteLine($"public int Sum(int x, int y): {math.Sum(2, 5)}");
 //            Console.WriteLine($"private delegate int Delegate1(int x, int y): {delegate1(2, 5)}");
@@ -568,13 +601,15 @@ tanımlanamaz. Her iki tanım uzayı da diğerini kapsamadığı sürece, iki ta
 //        public int y = 10;
 //        public int AddTen(int x)
 //        {
-//            public int AddTen(int x) // Kapsayan tanım uzaylarında aynı adda iki metot bulunamaz.
+//            // Kapsayan tanım uzaylarında aynı adda iki metot bulunamaz.
+//            public int AddTen(int x)
 //            {
 //                private int y = 10; 
 //                return x + y;
 //            }
 
-//            private int y = 10; // MathOperations sınıfında zaten y adında bir değişken tanımlanmış bu sebeple hata veriyor.
+//            // MathOperations sınıfında zaten y adında bir değişken tanımlanmış bu sebeple hata veriyor.
+//            private int y = 10;
 //            return x + y;
 //        }
 //    }
@@ -719,7 +754,8 @@ tanım uzayı oluştururlar.
 //            var innerVariable = "inner";
 //            return innerVariable;
 //        }
-//        innerVariable = null; // innerVariable değişkeni SomeMethod metodu içerisindeki yerel değişken tanımlama uzayında olduğundan buradan ulaşılamaz.
+//        // innerVariable değişkeni SomeMethod metodu içerisindeki yerel değişken tanımlama uzayında olduğundan buradan ulaşılamaz.
+//        innerVariable = null;
 
 //        public int number = 1;
 //        public string GetDayName(int number)
@@ -735,7 +771,8 @@ tanım uzayı oluştururlar.
 //                    dayName = "Tuesday";
 //                    break;
 //            }
-//            innerVariable = "Saturday"; // innerVariable değişkeni switch içerisindeki yerel değişken tanımlama uzayında olduğundan buradan ulaşılamaz.
+//            // innerVariable değişkeni switch içerisindeki yerel değişken tanımlama uzayında olduğundan buradan ulaşılamaz.
+//            innerVariable = "Saturday";
 //            return dayName;
 //        }
 //        public void TrySomething()
@@ -748,10 +785,12 @@ tanım uzayı oluştururlar.
 //            }
 //            catch (Exception e)
 //            {
-//                newMessage = "Error 2 !!!"; // newMessage değişkeni try içerisindeki yerel değişken tanımlama uzayında olduğundan buradan ulaşılamaz.
+//                // newMessage değişkeni try içerisindeki yerel değişken tanımlama uzayında olduğundan buradan ulaşılamaz.
+//                newMessage = "Error 2 !!!";
 //                throw;
 //            }
-//            newMessage = "Error 2 !!!"; // newMessage değişkeni try içerisindeki yerel değişken tanımlama uzayında olduğundan buradan ulaşılamaz.
+//            // newMessage değişkeni try içerisindeki yerel değişken tanımlama uzayında olduğundan buradan ulaşılamaz.
+//            newMessage = "Error 2 !!!";
 //        }
 
 //        public void RandomLoop()
@@ -760,7 +799,8 @@ tanım uzayı oluştururlar.
 //            {
 //                var innerVariable = i;
 //            }
-//            innerVariable = 10; // innerVariable değişkeni for döngüsü içerisindeki yerel değişken tanımlama uzayında olduğundan buradan ulaşılamaz.
+//            // innerVariable değişkeni for döngüsü içerisindeki yerel değişken tanımlama uzayında olduğundan buradan ulaşılamaz.
+//            innerVariable = 10;
 //        }
 //    }
 //}
@@ -826,11 +866,13 @@ uzayında birleşir.
 //                    dayName = "Monday";
 //                    break;
 //                case 2:
-//                    var innerVariable = "inner"; // Her bir switch bölümü yeni bir yerel değişken tanımlama uzayı oluşturmaz. Tüm bölümleri oluşturduğu uzay birleştirilir.  
+//                    // Her bir switch bölümü yeni bir yerel değişken tanımlama uzayı oluşturmaz. Tüm bölümleri oluşturduğu uzay birleştirilir.
+//                    var innerVariable = "inner";  
 //                    dayName = "Tuesday";
 //                    break;
 //            }
-//            innerVariable = "Saturday"; // innerVariable değişkeni switch içerisindeki yerel değişken tanımlama uzayında olduğundan buradan ulaşılamaz.
+//            // innerVariable değişkeni switch içerisindeki yerel değişken tanımlama uzayında olduğundan buradan ulaşılamaz.
+//            innerVariable = "Saturday";
 //            return dayName;
 //        }
 //    }
@@ -851,7 +893,8 @@ Sorgu ifadelerinin (query expressions) (§12.20.3) çevirisi bir ya da daha fazl
 //        {
 //            string text = "Arcan Caner Şenol is 28 years old.";
 //            char searchedChar = text.SingleOrDefault(w => w == character);
-//            w = 'd'; // w değişkeni anonim metot içerisindeki yerel değişken tanımlama uzayında olduğundan buradan ulaşılamaz.
+//            // w değişkeni anonim metot içerisindeki yerel değişken tanımlama uzayında olduğundan buradan ulaşılamaz.
+//            w = 'd';
 //            return searchedChar == null ? true : false;
 //        }
 //    }
@@ -875,7 +918,8 @@ uzayında kapsayan blok içerisinde ve içindeki blokta aynı isimde iki üye ta
 //        int i = 0;
 //        if (true)
 //        {
-//            int i = 1; // i zaten bir üst tanım uzayında tanımlanmış hata verir.
+//            // i zaten bir üst tanım uzayında tanımlanmış hata verir.
+//            int i = 1;
 //        }
 //    }
 //    void G()
@@ -884,7 +928,8 @@ uzayında kapsayan blok içerisinde ve içindeki blokta aynı isimde iki üye ta
 //        {
 //            int i = 0;
 //        }
-//        int i = 1; // i zaten bir iç tanım uzayında tanımlanmış hata verir.
+//        // i zaten bir iç tanım uzayında tanımlanmış hata verir.
+//        int i = 1;
 //    }
 //    void H()
 //    {
@@ -894,7 +939,8 @@ uzayında kapsayan blok içerisinde ve içindeki blokta aynı isimde iki üye ta
 //        }
 //        if (true)
 //        {
-//            int i = 1; // Burada bir sorun olmaz çünkü iki bloğun kendi yerel değişken tanım uzayı farklıdır.
+//            // Burada bir sorun olmaz çünkü iki bloğun kendi yerel değişken tanım uzayı farklıdır.
+//            int i = 1;
 //        }
 //    }
 //    void I()
@@ -903,9 +949,23 @@ uzayında kapsayan blok içerisinde ve içindeki blokta aynı isimde iki üye ta
 //        {
 //            H();
 //        }
-//        for (int i = 0; i < 10; i++) // Her döngü kendi yerel değişken tanım uzayını oluşturur.
+//        // Her döngü kendi yerel değişken tanım uzayını oluşturur.
+//        for (int i = 0; i < 10; i++)
 //        {
 //            H();
+//        }
+//    }
+//    void J()
+//    {
+//        for (int i = 0; i < 10; i++)
+//        {
+//            H();
+//            // Her döngü içinde bulunduğu tanım uzayına dahil olur.
+//            // Burada i dış tanım uzayında zaten tanımlıdır.
+//            for (int i = 0; i < 10; i++)
+//            {
+//                H();
+//            }
 //        }
 //    }
 //}
@@ -936,31 +996,31 @@ Yerel değişkenler çağrılmadan önce tanımlanmalıdır.
 Sayılabilirler (enumerable) sabit değerlerle index belirtmeden tanımlanırken tanım sırası index numarasını belirler.
 */
 
-//enum Color1
-//{
-//    Red,
-//    Green,
-//    Blue
-//}
-//enum Color2
-//{
-//    Blue,
-//    Red,
-//    Green
-//}
-//class Test
-//{
-//    static void Main()
-//    {
-//        Console.WriteLine("--- Order 1 ---");
-//        Console.WriteLine($"{Color1.Red} {(int)Color1.Red}");
-//        Console.WriteLine($"{Color1.Green} {(int)Color1.Green}");
-//        Console.WriteLine($"{Color1.Blue} {(int)Color1.Blue}");
-//        Console.WriteLine("--- Order 2 ---");
-//        Console.WriteLine($"{Color2.Red} {(int)Color2.Red}");
-//        Console.WriteLine($"{Color2.Green} {(int)Color2.Green}");
-//        Console.WriteLine($"{Color2.Blue} {(int)Color2.Blue}");
-//    }
-//}
+enum Color1
+{
+    Red,
+    Green,
+    Blue
+}
+enum Color2
+{
+    Blue,
+    Red,
+    Green
+}
+class Test
+{
+    static void Main()
+    {
+        Console.WriteLine("--- Order 1 ---");
+        Console.WriteLine($"{Color1.Red} {(int)Color1.Red}");
+        Console.WriteLine($"{Color1.Green} {(int)Color1.Green}");
+        Console.WriteLine($"{Color1.Blue} {(int)Color1.Blue}");
+        Console.WriteLine("--- Order 2 ---");
+        Console.WriteLine($"{Color2.Red} {(int)Color2.Red}");
+        Console.WriteLine($"{Color2.Green} {(int)Color2.Green}");
+        Console.WriteLine($"{Color2.Blue} {(int)Color2.Blue}");
+    }
+}
 #endregion
 #endregion

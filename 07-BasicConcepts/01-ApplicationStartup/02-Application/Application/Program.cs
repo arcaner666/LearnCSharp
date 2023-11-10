@@ -13,10 +13,10 @@ namespace Application
         - Main adını taşımalı
         - static olmalı
         - generic olmayan bir türde tanımlanmalı
-        - Eğer tanımladığı tür iç içe tanımlanmış (nested) bir türse onu kapsayan türlerin hiçbiri generic olamaz
+        - Eğer tanımladığı tür (type) iç içe tanımlanmış (nested) bir türse onu kapsayan türlerin hiçbiri generic olamaz
         - Dönüş türünün System.Threading.Tasks.Task veya System.Threading.Tasks.Task int olması durumunda async bildirgecine sahip olabilir.
         - Dönüş türü void, int, System.Threading.Tasks.Task veya System.Threading.Tasks.Task int olmalı
-        - İmplement edilmemiş bir partial metot olamaz
+        - İmplement edilmemiş bir kısmi (partial) metot olamaz
         - Parametre olarak ya boş olmalı ya da string[] türünde tek bir parametreye sahip olmalıdır.
            
         Genelde bir metodun veya türün (type) erişilebilirliği tanımındaki erişim bildirgecine (access modifier) bağlıdır. Bir tür içerisindeki bir metodun çağrılabilmesi için hem 
@@ -29,7 +29,7 @@ namespace Application
         - Sentezlenen metot Main metodunu çağırır, içinde gelen string[] parametresini eğer Main metodunda da böyle bir parametre varsa ona parametre olarak girer.
         - Eğer Main metodu bir istisna (exception) döndürürse sentezlenen metot da bu istisnayı döndürür.
         - Diğer durumda sentezlenen metot Main metodundan dönen sonucu bekler, Task üzerindeki GetAwaiter().GetResult metotlarını parametreli veya parametre girmeden çağırır.
-        Eğer Task hata döndürürse bu hata sentezlenen metot da döndürülür.
+        Eğer Task hata döndürürse bu hata sentezlenen metottan döndürülür.
         - System.Threading.Tasks.Task<int> döndüren Main metodu ise başarılı olduğunda sentezlenen metoda int döndürür.
         
         Bir uygulamanın efektif başlangıç noktası (the effective entry point) ya kurallara uygun bir Main metodudur ya da üstteki gibi sentezlenmiş bir metottur. Efektif başlangıç 
@@ -39,8 +39,8 @@ namespace Application
         her çalıştırma için ayrı bir uygulama etki alanı oluşturulur. Uygulama etki alanı uygulamaların farklı oturumlarını birbirinden izole eder ve uygulamanın durumunun 
         (application state) korunmasını sağlar. Bir uygulama etki alanı, uygulamada tanımlanan türler ve kullandığı sınıf kitaplıkları için bir kapsayıcı ve sınır görevi görür.
         Bir uygulama etki alanına yüklenen türler, başka bir uygulama etki alanına yüklenen türlerden farklıdır ve nesnelerin örnekleri, uygulama etki alanları arasında doğrudan
-        paylaşılmaz. Örneğin, her uygulama etki alanı, bu türler için kendi static değişken kopyalarına sahiptir ve bir tür için static constructor her uygulama etki alanında 
-        en fazla bir kez çalıştırılır.
+        paylaşılmaz. Örneğin, her uygulama etki alanı, bu türler için kendi statik (static) değişken kopyalarına sahiptir ve bir tür için statik oluşturucu (static constructor) 
+        her uygulama etki alanında en fazla bir kez çalıştırılır.
 
         Uygulama, yürütme ortamı (execution environment) uygulamanın etkin giriş noktasını (effective entry point) çağırdığında başlar. Etkin giriş noktası bir parametreye sahipse, 
         uygulamanın başlatılması sırasında, bu parametrenin boş olmayan (non-null) bir string dizisi olmadığından emin olur. Bu dizi, uygulama başlatılmadan önce yürütme ortamı
