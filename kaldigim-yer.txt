@@ -1,1 +1,1 @@
-https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/language-specification/basic-concepts#745-class-members
+https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/language-specification/basic-concepts#75-member-access

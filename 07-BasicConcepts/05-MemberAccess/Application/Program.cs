@@ -159,44 +159,44 @@ Sayılabilirler (enumerable) gizli olarak public erişim bildirgecini alır. Say
 #endregion
 
 #region Erişilebilirlik Alanları (Accessibility Domains)
-//namespace Application
-//{
-//    public class A
-//    {
-//        public static int X = 0;
-//        internal static int Y = 1;
-//        private static int Z = 2;
-//    }
+namespace Application
+{
+    public class A
+    {
+        public static int X = 0;
+        internal static int Y = 1;
+        private static int Z = 2;
+    }
 
-//    internal class B
-//    {
-//        public static int X = 0;
-//        internal static int Y = 1;
-//        private static int Z = 2;
+    internal class B
+    {
+        public static int X = 0;
+        internal static int Y = 1;
+        private static int Z = 2;
 
-//        public class C
-//        {
-//            public static int X = 0;
-//            internal static int Y = 1;
-//            private static int Z = 2;
-//        }
+        public class C
+        {
+            public static int X = 0;
+            internal static int Y = 1;
+            private static int Z = 2;
+        }
 
-//        private class D
-//        {
-//            public static int X = 0;
-//            internal static int Y = 1;
-//            private static int Z = 2;
-//        }
-//    }
-//    public class Program
-//    {
+        private class D
+        {
+            public static int X = 0;
+            internal static int Y = 1;
+            private static int Z = 2;
+        }
+    }
+    public class Program
+    {
 
-//        static void Main(string[] args)
-//        {
-//            var a = new A();
-//            Console.WriteLine(A.X);
-//        }
-//    }
-//}
+        static void Main(string[] args)
+        {
+            var a = new A();
+            Console.WriteLine(A.X);
+        }
+    }
+}
 #endregion
 #endregion
