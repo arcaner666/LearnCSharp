@@ -1,0 +1,24 @@
+﻿C# öğrenirken hızlı ve etkili öğrenme için alttaki kurallara uymam gerekiyor.
+
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!!! BU KURALLARI HERGÜN OKU Kİ DURMADAN AYNI DÖNGÜDE KAYBOLMA !!!
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+1) LinkedIn'deki kursları takip et ilk kaynak orası olacak.
+
+2) LinkedIn kursunda anlatılanları 01-Source bölümü içerisine kendine göre not alarak ekle.
+
+3) C#'taki her konu başlığını 01-Source içerisine gir. Başlıklara karar vermek için C# dökümantasyon sayfasından yararlan.
+
+4) Çok aşırı detaya girmemek kaydıyla C# dökümantasyonuyla 01-Source içerisini zenginleştirebilirsin. Ama tüm dökümantasyonu Türkçe'ye çevirmeye çalışma.
+
+5) 01-Source içerisindeki her konu başlığında yalnızca o özellikle ilgili notlar olsun. Classes içerisinde Constructor'u anlatma.
+
+6) 01-Source içerisinde çok fazla iç içe klasör olmasın. Bunun yerine tüm klasörler yanyana 01-Source içerisinde olsun.
+
+7) 01-Source içerisindeki her klasörün alt başlıkları için bu klasör içinde yeni klasör açma. Bunun yerine aynı klasörde Application gibi yeni bir proje oluştur konuya uygun bir 
+şekilde isimlendir.
+
+8) Başlarda 01-Source içinde çok klasör olması normal. İlerde konular netleştikçe daha iç içe toplu bir yapıya geçiririm.
+
+9) Yapı sürekli değişip gelişecek. Erkenden şekle çok önem verme.

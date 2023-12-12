@@ -1,1 +1,6 @@
+
+.NET Spesifikasyonu
 https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/language-specification/basic-concepts#75-member-access
+
+LinkedId Learning
+C# Essential Training 1: Types and Control Flow => 2.Bölüm 1.Video
