@@ -5,9 +5,8 @@ internal abstract class Program
     /*
     C#'ta iki çeşit tür (type) vardır. Referans tür (reference type) ve değer türü (value types). 
     
-    Referans türlerin değişkenleri içlerinde verilerinin hafızadaki referanslarını 
-    tutarken değer tipi değişkenler veriyi direk içlerinde saklarlar. Referans tiplerde iki değişken hafızada aynı nesneyi referans gösterebilir; bu nedenle, bir değişken üzerindeki
-    işlemler diğer değişkenin referans gösterdiği aynı nesneyi etkileyebilir. 
+    Referans türlerin değişkenleri içlerinde verilerinin hafızadaki referanslarını tutarken değer tipi değişkenler veriyi direk içlerinde saklarlar. Referans tiplerde iki 
+    değişken hafızada aynı nesneyi referans gösterebilir; bu nedenle, bir değişken üzerindeki işlemler diğer değişkenin referans gösterdiği aynı nesneyi etkileyebilir. 
     
     Değer tipinde her değişken kendi verisinin kopyasını saklar. Bir değişken üzerindeki bir işlemin diğerini etkilemesi in, ref, out deyimleri kullanılmadığı sürece mümkün değildir.
 
